@@ -1,0 +1,57 @@
+﻿@model MondayAlert.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post, new { role = "form" }))
+{
+    <div class="container" style="padding-top:123px; padding-bottom:123px;">
+        <div class="row ">
+            <div class="col-md-5 col-md-offset-3  ">
+                <div class="panel panel-default panel-color">
+                    <div class="panel panel-heading panel-color">
+                        <h1 class="text-center">Login Form</h1>
+                        @if (Model.HasError && !string.IsNullOrEmpty(Model.Message))
+                        {
+                            <h5 class="text-danger text-center">
+                                @Html.DisplayFor(m => m.Message, new { @class = "text-danger" })
+                            </h5>
+                        }
+                    </div>
+                    <div class="panel panel-body">
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-md-3 col-form-label">Email</label>
+                            <div class="col-md-6 input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = " Email", id = "example-text-input" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-md-3 col-form-label"> Password </label>
+                            <div class="col-md-6 input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i> </span>
+                                @Html.PasswordFor(x => x.Password, new { @class = "form-control", placeholder = " password", id = "example-text-input" })
+                            </div>
+                        </div>
+
+                        <input type="submit" value="LogIn" class="btn btn-primary" id="btn_login">
+                        @*<a href="@Url.Action("Index", "Home")" class="btn btn-primary">Open</a>*@
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@*<script type="text/javascript" src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <script>
+        $(function () {
+            $("#btn_login").click(function () {
+                $("audio")[0].play();
+            });
+
+        })
+    </script>*@

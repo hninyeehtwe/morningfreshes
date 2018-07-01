@@ -1,0 +1,505 @@
+﻿<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>In Home Interior Category Bootstrap Responsive Web Template | Home :: w3layouts</title>
+    <!-- meta-tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="In Home Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //meta-tags -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- font-awesome -->
+    <link href="~/Content/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/chocolat.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="~/Content/flexslider.css" type="text/css" media="screen" property="" />
+    <link rel="stylesheet" href="~/Content/custom.css" type="text/css" />
+    <!-- Flexslider-CSS -->
+    <!-- //Gallery Css -->
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Great+Vibes&amp;subset=latin-ext" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i&amp;subset=latin-ext,vietnamese"
+          rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+</head>
+
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="content white">
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="logo" href="index.html">
+                            <h1>
+                                <img src="~/images/logo.png" width="35%;" />
+                                @*In Home
+                                    <span>Interior Designs</span>*@
+                            </h1>
+                        </a>
+                    </div>
+                    <!--/.navbar-header-->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <nav class="link-effect-2" id="link-effect-2">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="active">
+                                    <a href="index.html" class="effect-3">Home</a>
+                                </li>
+
+                                <li>
+                                    @if (Request.IsAuthenticated)
+                                    {
+                                        <a>
+                                            @Request.Cookies["Email"].Value.ToString()
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("Login", "Home")">Login</a>
+                                    }
+                                </li>
+                                @*<li>
+                                        <a href="#about" class="scroll">About Us</a>
+                                    </li>
+                                    <li>
+                                        <a href="#services" class="effect-3 scroll">Services</a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            Pages
+                                            <b class="caret"></b>
+                                        </a>
+                                        <ul class="dropdown-menu agile_short_dropdown">
+                                            <li>
+                                                <a href="#popular" class="scroll">Popular</a>
+                                            </li>
+                                            <li>
+                                                <a href="#testi" class="scroll">Testimonials</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#projects" class="effect-3 scroll">Projects</a>
+                                    </li>
+                                    <li>
+                                        <a href="#team" class="effect-3 scroll">Team</a>
+                                    </li>
+                                    <li>
+                                        <a href="#contact" class="effect-3 scroll">Contact Us</a>
+                                    </li>*@
+                            </ul>
+                        </nav>
+                    </div>
+                    <!--/.navbar-collapse-->
+                    <!--/.navbar-->
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="header-top">
+        @*<p>
+                <i class="fa fa-map-marker" aria-hidden="true"></i>New Kampshire Mshinon, USA
+            </p>*@
+    </div>
+
+    <!-- Trigger the modal with a button -->
+    @*<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>*@
+
+    <!-- Modal -->
+    @{ if (Request.IsAuthenticated)
+        {
+
+
+            <div id="myModal" class="modal bounceDownIn" role="dialog">
+                <div class="modal-dialog">
+                    @{
+                        MondayAlert.Views.ViewModel.SupriseQuestion sq = new MondayAlert.Views.ViewModel.SupriseQuestion();
+                        MondayAlert.Class.Alarm clsAlarm = new MondayAlert.Class.Alarm();
+                        sq = clsAlarm.GetSupriseQuestion();
+
+
+                    }
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        @*<div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Modal Header</h4>
+                            </div>*@
+                        <div class="modal-body text-center">
+                            <div style="display:none;">
+                                <audio controls preload='none' loop>
+                                    <source src='~/images/chicken.wav' type='audio/wav'>
+                                </audio>
+                            </div>
+                            <img src="~/images/questiomark.jpg" style="width:30%; height:30%;" />
+                            <br />
+                            <h2>@sq.Question</h2>
+                            <br />
+                            @Html.Hidden("Question", Html.Raw(Json.Encode(sq)), new { @id = "Question" })
+                            @if (!string.IsNullOrEmpty(sq.Image))
+                            {
+                                string path = "/images/" + sq.Image;
+                                <img src=@path style="width:100%;" />
+                                <br />
+                            }   
+                            @if (!string.IsNullOrEmpty(sq.Answer))
+                            {
+                                
+                                <input  type="radio" id="OptionA" name="Option" value="@sq.OptionA" title="@sq.OptionA" /> @sq.OptionA
+                                <input style="margin-left:10px;" type="radio" id="OptionB" name="Option" value="@sq.OptionB" title="@sq.OptionB" />@sq.OptionB
+                                <input style="margin-left:10px;" type="radio" id="OptionC" name="Option" value="@sq.OptionC" title="@sq.OptionC" />@sq.OptionC
+                                <br />
+                                <a onclick="AnswerIsCorrectOrNot();" class="btn btn-primary" style="margin-bottom:30px;margin-top:30px;">Confirm & Redeem</a>
+                            }
+                            else
+                            {
+                                <a onclick="CheckGiftAvaility();" class="btn btn-primary" style="margin-bottom:30px;margin-top:30px;">Redeem</a>
+                            }
+                            <br />
+                            @*<a onclick="AnswerIsCorrectOrNot();" class="btn btn-primary">
+                                    <img src="~/images/gift-box.gif" style="width:100%; height:100%;" />
+                                    <div style="display:none;">
+                                        <audio controls preload='none' loop>
+                                            <source src='~/images/chicken.wav' type='audio/wav'>
+                                        </audio>
+                                    </div>
+
+
+                                </a>*@
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+    <!-- Success Modal -->
+                        <div id="SuccessModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content text-center">
+                                    @*<div class="modal-header">
+
+
+                                        </div>*@
+                                    <div class="modal-body">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        @*<h2>Congratulations!!!</h2>*@
+                                        <img src="~/images/Congg.gif" id="" style="width:30%;" />
+                                        <br />
+                                        Coupon Code : <h3><span id="couponID"></span></h3>
+                                        <h4><span id="coupon_desc"></span></h4>
+                                        <img src="" id="CouponImage" style="width:80%; height:100%;" />
+                                        <br />
+                                        <p style="color:red;">Please keep screenshot for use of coupon</p>
+                                        <br />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+    <!-- Error Modal -->
+                                    <div id="ErrorModal" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content text-center">
+
+                                                <div class="modal-body">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <img src="~/images/tenor.gif" style="width:99%; " />
+                                                    <br />
+                                                    <h3 style="color:darkblue;">Oops... You miss a chance. Please come next time, more gifts are waiting...</h3>
+                                                    <br />
+
+                                                    <br />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                        }}
+    @RenderBody()
+
+    <!-- footer -->
+    <footer>
+        <div class="copy-right-grids">
+            <p class="footer-gd">
+                © 2018 In Home. All Rights Reserved | Design by
+                <a href="www.about-m-mm.com" target="_blank">M I M M</a>
+            </p>
+        </div>
+    </footer>
+    <!-- //footer -->
+    <!-- js files -->
+    <!-- js -->
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <!-- bootstrap -->
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    <!--gallery -->
+    <script src="~/Scripts/jquery.chocolat.js"></script>
+    <!--light-box-files -->
+    <script>
+        var alerted = 0;
+        //var myVar = setInterval(function () {
+        //    validateAlarm()
+        //}, 30000)//30sec
+        //function myStopFunction() {
+        //    //var all = Object.keys(this.intervals), len = all.length;
+
+        //    //while (len-- > 0) {
+        //    //    clearInterval(all.shift());
+        //    //}
+        //    clearInterval(myVar);
+        //}
+        $(function () {
+            if (alerted == 0) {
+                validateAlarm();
+            }
+            //var myVar = setTimeout(
+            //    validateAlarm(), 2000);
+            setInterval(function () {
+                if (alerted==0) {
+                    validateAlarm();
+                }
+                
+            }, 30000)//30sec
+            function validateAlarm() {
+                var isRequestAuthenticated = '@Request.IsAuthenticated';
+                if (isRequestAuthenticated == 'True') {
+
+                    var d = new Date();
+                    var combine = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+
+                    var from = '@System.Configuration.ConfigurationManager.AppSettings["AlertTimeFrom"].ToString()';
+                    var to = '@System.Configuration.ConfigurationManager.AppSettings["AlertTimeTo"].ToString()';
+
+                    if (combine >= from && combine <= to) {
+                        alerted = 1;
+                        alert(1);
+                        showModal();
+                        //clearTimeout(myVar);
+                    }
+                    else if (combine > from && combine > to) {
+
+                        $('#myModal').modal('hide');
+                        $("audio")[0].pause();
+                    }
+
+                }
+            }
+
+
+            function showModal() {
+                $('#myModal').modal('show');
+                $("audio")[0].play();
+            }
+
+            function checkToTime() {
+                var to = '@System.Configuration.ConfigurationManager.AppSettings["AlertTimeTo"].ToString()';
+
+                var d = new Date();
+                var combine = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+
+                if (combine == to) {
+                    $('#myModal').modal('hide');
+                    $("audio")[0].pause();
+                }
+
+                checkToTime();
+            }
+
+            $('.gallery-grid1 a').Chocolat();
+        });
+
+    </script>
+    <!-- //gallery -->
+    <!-- skills -->
+    <script src="~/Scripts/skill.bars.jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.skillbar').skillBars({
+                from: 0,
+                speed: 4000,
+                interval: 100,
+                decimals: 0,
+            });
+
+        });
+
+        //$('#myModal').modal('show');
+        //$("audio")[0].play();
+
+        function CheckGiftAvaility() {
+            //myStopFunction();
+            $('#myModal').modal('hide');
+            $("audio")[0].pause();
+            var question = $.parseJSON(document.getElementById("Question").value);
+            //check gift availability and save
+            var aaaa = '/Home/MyAlarmsOnHit?resultStatus=1&supriseID=' + question['SupriseID'];
+            $.ajax({
+                url: aaaa,
+                type: 'POST',
+                //data: { "resultStatus": 1, "supriseID": question['SurpriseID'] },
+                success: function (result) {
+                    $('#couponID').text(result[0]);
+                    $('#coupon_desc').text(result[1]);
+                    $("#CouponImage").attr("src", result[2]);
+                    $('#SuccessModal').modal('show');
+                },
+                error: function (error) {
+                    alert('error');
+                }
+            });
+        }
+
+        //Checking validation ....
+        function AnswerIsCorrectOrNot() {
+            //myStopFunction();
+            $('#myModal').modal('hide');
+            $("audio")[0].pause();
+            //check answer
+            var result = false;
+            var question = $.parseJSON(document.getElementById("Question").value);
+            if (document.getElementById('OptionA').checked) {
+
+                if (document.getElementById('OptionA').value == question['Answer']) {
+                    result = true;
+                }
+                else {
+                    result = false;
+                }
+            }
+            else if (document.getElementById('OptionB').checked) {
+                if (document.getElementById('OptionB').value == question['Answer']) {
+                    result = true;
+                }
+                else {
+                    result = false;
+                }
+            }
+            else if (document.getElementById('OptionC').checked) {
+                if (document.getElementById('OptionC').value == question['Answer']) {
+                    result = true;
+                }
+                else {
+                    result = false;
+                }
+            }
+            if (result == true) {
+                //update coupon count and alarm hit
+
+                var aaaa = '/Home/MyAlarmsOnHit?resultStatus=1&supriseID=' + question['SupriseID'];
+                $.ajax({
+                    url: aaaa,
+                    type: 'POST',
+                    //data: { "resultStatus": 1, "supriseID": question['SurpriseID'] },
+                    success: function (result) {
+                        $('#couponID').text(result[0]);
+                        $('#coupon_desc').text(result[1]);
+                        $("#CouponImage").attr("src", result[2]);
+
+                    },
+                    error: function (error) {
+                        alert('error');
+                    }
+                });
+
+                $('#SuccessModal').modal('show');
+            }
+            else {
+                var aaaa = '/Home/MyAlarmsOnHit?resultStatus=0&supriseID=' + question['SupriseID'];
+                $.ajax({
+                    url: aaaa,
+                    type: 'POST',
+                    //data: { "resultStatus": 1, "supriseID": question['SurpriseID'] },
+                    success: function (result) {
+                        $('#couponID').text(result[0]);
+                        $('#coupon_desc').text(result[1]);
+
+                    },
+                    error: function (error) {
+
+                    }
+                });
+                $('#ErrorModal').modal('show');
+            }
+
+        }
+    </script>
+    <!-- //skills -->
+    <!-- flexSlider -->
+    <script defer src="~/Scripts/jquery.flexslider.js"></script>
+    <script>
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                start: function (slider) {
+                    $('body').removeClass('loading');
+                }
+            });
+        });
+    </script>
+    <!-- //flexSlider -->
+    <!-- smoothscroll -->
+    <script src="~/Scripts/SmoothScroll.min.js"></script>
+    <!-- //smoothscroll -->
+    <!-- start-smooth-scrolling -->
+    <script src="~/Scripts/move-top.js"></script>
+    <script src="~/Scripts/easing.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+    <!-- //end-smooth-scrolling -->
+    <!-- smooth-scrolling-of-move-up -->
+    <script>
+        $(document).ready(function () {
+            /*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear'
+			};
+			*/
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <!-- //smooth-scrolling-of-move-up -->
+    <!-- //js-files -->
+
+
+</body>
+
+</html>
